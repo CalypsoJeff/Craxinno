@@ -12,8 +12,12 @@ dotenv.config();
 const app = express();
 const PORT = Number(process.env.PORT) || 5000;
 
+const ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://craxinno.vercel.app",
+];
 
-app.use(cors({ origin: process.env.CORS_ORIGIN || "http://localhost:5173" || "https://craxinno.vercel.app" }));
+app.use(cors({ origin: ALLOWED_ORIGINS }));
 
 app.use(express.json());
 
